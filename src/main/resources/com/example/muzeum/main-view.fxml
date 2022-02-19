@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeum.Controllers.MainController">
-    <HBox spacing="10.0">
+    <HBox onMouseClicked="#windowClicked" spacing="10.0">
       <Button fx:id="addBtn" onAction="#addBtnClick" text="Felvétel" />
       <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editBtnClick" text="Szerkesztés" />
         <Button fx:id="delBtn" onAction="#delBtnClick" style="-fx-background-color: red;" text="Törlés" textFill="WHITE">
@@ -22,12 +22,9 @@
                   <children>
                       <TableView fx:id="statueTable">
                           <columns>
-                              <TableColumn fx:id="sTabPerson" prefWidth="150.0" text="Személy" maxWidth="1500.0"
-                                           minWidth="30.0"/>
-                              <TableColumn fx:id="sTabHeight" prefWidth="100.0" text="Magasság" maxWidth="1000.0"
-                                           minWidth="30.0"/>
-                              <TableColumn fx:id="sTabPrice" prefWidth="100.0" text="Ár" maxWidth="1000.0"
-                                           minWidth="30.0"/>
+                              <TableColumn fx:id="sTabPerson" maxWidth="1500.0" minWidth="30.0" prefWidth="150.0" text="Személy" />
+                              <TableColumn fx:id="sTabHeight" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Magasság" />
+                              <TableColumn fx:id="sTabPrice" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Ár" />
                           </columns>
                       </TableView>
                   </children>
@@ -40,12 +37,9 @@
                   <children>
                       <TableView fx:id="paintingTable">
                           <columns>
-                              <TableColumn fx:id="pTabName" prefWidth="150.0" text="Név" maxWidth="1500.0"
-                                           minWidth="30.0"/>
-                              <TableColumn fx:id="pTabYear" prefWidth="100.0" text="Kiadási év" maxWidth="1000.0"
-                                           minWidth="30.0"/>
-                              <TableColumn fx:id="pTabDisplay" prefWidth="100.0" text="Kiállítva" maxWidth="1000.0"
-                                           minWidth="30.0"/>
+                              <TableColumn fx:id="pTabName" maxWidth="1500.0" minWidth="30.0" prefWidth="150.0" text="Név" />
+                              <TableColumn fx:id="pTabYear" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Kiadási év" />
+                              <TableColumn fx:id="pTabDisplay" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Kiállítva" />
                           </columns>
                       </TableView>
                   </children>

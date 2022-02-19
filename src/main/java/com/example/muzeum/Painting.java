@@ -9,6 +9,8 @@ public class Painting {
     private String onDisplayString;
 
     //region Getter / Setter
+    public int getId() { return id; }
+
     public String getName() {
         return name;
     }

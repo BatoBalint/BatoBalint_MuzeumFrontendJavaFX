@@ -64,30 +64,87 @@ public class MainController {
     }
 
     @FXML
-    public void editBtnClick() {
+    public void addBtnClick() {
+        switch (selectedTab) {
+            case 0:
+                break;
+            case 1:
+                break;
+        }
+    }
 
+    @FXML
+    public void editBtnClick() {
+        switch (selectedTab) {
+            case 0: editStatue();
+                break;
+            case 1: editPainting();
+                break;
+        }
+    }
+
+    private void editStatue() {
+        if (itemIsSelected(statueTable, "szobrot")) {
+
+        }
+    }
+
+    private void editPainting() {
+        if (itemIsSelected(paintingTable, "festményt")) {
+
+        }
     }
 
     @FXML
     public void delBtnClick() {
-
+        switch (selectedTab) {
+            case 0: deleteStatue();
+                break;
+            case 1: deletePainting();
+                break;
+        }
     }
 
-    @FXML
-    public void addBtnClick() {
-        testAlert(tabPane.getSelectionModel().getSelectedItem().getText());
+    private void deleteStatue() {
+        if (itemIsSelected(statueTable, "szobrot")) {
+
+        }
+    }
+
+    private void deletePainting() {
+        if (itemIsSelected(paintingTable, "festményt")) {
+
+        }
+    }
+
+    private boolean itemIsSelected(TableView table, String errorMessage) {
+        if (table.getSelectionModel().getSelectedIndex() == -1) {
+            noSelectedItem(errorMessage);
+            return false;
+        }
+        return true;
+    }
+
+    private void noSelectedItem(String text) {
+        alert(Alert.AlertType.WARNING, "Elöbb válasszon ki egy " + text + ".");
     }
 
     @FXML
     public void tabPaneClicked() {
         selectedTab = tabPane.getSelectionModel().getSelectedIndex();
+        clearSelectedItem();
     }
 
-    public void testAlert() {
-        new Alert(Alert.AlertType.NONE, "Test", ButtonType.OK).show();
+    public void alert(Alert.AlertType alertType, String text) {
+        new Alert(alertType, text, ButtonType.OK).show();
     }
 
-    public void testAlert(String text) {
-        new Alert(Alert.AlertType.NONE, text, ButtonType.OK).show();
+    public void windowClicked() {
+        clearSelectedItem();
+    }
+
+    public void clearSelectedItem() {
+        statueTable.getSelectionModel().clearSelection();
+        paintingTable.getSelectionModel().clearSelection();
     }
 }
