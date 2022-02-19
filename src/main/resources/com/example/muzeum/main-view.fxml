@@ -22,9 +22,12 @@
                   <children>
                       <TableView fx:id="statueTable">
                           <columns>
-                              <TableColumn fx:id="sTabPerson" prefWidth="150.0" text="Személy" />
-                              <TableColumn fx:id="sTabHeight" prefWidth="100.0" text="Magasság" />
-                              <TableColumn fx:id="sTabPrice" prefWidth="100.0" text="Ár" />
+                              <TableColumn fx:id="sTabPerson" prefWidth="150.0" text="Személy" maxWidth="1500.0"
+                                           minWidth="30.0"/>
+                              <TableColumn fx:id="sTabHeight" prefWidth="100.0" text="Magasság" maxWidth="1000.0"
+                                           minWidth="30.0"/>
+                              <TableColumn fx:id="sTabPrice" prefWidth="100.0" text="Ár" maxWidth="1000.0"
+                                           minWidth="30.0"/>
                           </columns>
                       </TableView>
                   </children>
@@ -37,9 +40,12 @@
                   <children>
                       <TableView fx:id="paintingTable">
                           <columns>
-                              <TableColumn fx:id="pTabName" prefWidth="150.0" text="Név" />
-                              <TableColumn fx:id="pTabYear" prefWidth="100.0" text="Kiadási év" />
-                              <TableColumn fx:id="pTabDisplay" prefWidth="100.0" text="Kiállítva" />
+                              <TableColumn fx:id="pTabName" prefWidth="150.0" text="Név" maxWidth="1500.0"
+                                           minWidth="30.0"/>
+                              <TableColumn fx:id="pTabYear" prefWidth="100.0" text="Kiadási év" maxWidth="1000.0"
+                                           minWidth="30.0"/>
+                              <TableColumn fx:id="pTabDisplay" prefWidth="100.0" text="Kiállítva" maxWidth="1000.0"
+                                           minWidth="30.0"/>
                           </columns>
                       </TableView>
                   </children>

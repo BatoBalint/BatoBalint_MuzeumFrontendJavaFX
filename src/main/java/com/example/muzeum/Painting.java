@@ -2,6 +2,7 @@ package com.example.muzeum;
 
 public class Painting {
 
+    private int id;
     private String name;
     private int year;
     private boolean onDisplay;
@@ -39,11 +40,22 @@ public class Painting {
     }
     //endregion
 
-    public Painting(String name, int year, boolean onDisplay) {
+    public Painting(int id, String name, int year, boolean onDisplay) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.onDisplay = onDisplay;
         if (this.onDisplay) this.onDisplayString = "Igen";
         else this.onDisplayString = "Nem";
+    }
+
+    @Override
+    public String toString() {
+        return "Painting{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", onDisplay=" + onDisplay +
+                ", onDisplayString='" + onDisplayString + '\'' +
+                '}';
     }
 }

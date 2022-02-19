@@ -1,6 +1,7 @@
 package com.example.muzeum;
 
 public class Statue {
+    private int id;
     private String person;
     private int height;
     private int price;
@@ -31,7 +32,8 @@ public class Statue {
     }
     //endregion
 
-    public Statue(String person, int height, int price) {
+    public Statue(int id, String person, int height, int price) {
+        this.id = id;
         this.person = person;
         this.height = height;
         this.price = price;

@@ -1,10 +1,14 @@
 package com.example.muzeum.Controllers;
 
+import com.example.muzeum.Api;
 import com.example.muzeum.Painting;
 import com.example.muzeum.Statue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.IOException;
+import java.util.List;
 
 public class MainController {
 
@@ -45,8 +49,18 @@ public class MainController {
         sTabHeight.setCellValueFactory(new PropertyValueFactory<>("height"));
         sTabPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        Painting p = new Painting("Lajos", 1999, true);
-        paintingTable.getItems().add(p);
+        try {
+            List<Painting> paintings = Api.getPaintings();
+            for(Painting p : paintings) {
+                paintingTable.getItems().add(p);
+            }
+            List<Statue> statues = Api.getStatues();
+            for (Statue s : statues) {
+                statueTable.getItems().add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -61,7 +75,7 @@ public class MainController {
 
     @FXML
     public void addBtnClick() {
-
+        testAlert(tabPane.getSelectionModel().getSelectedItem().getText());
     }
 
     @FXML
