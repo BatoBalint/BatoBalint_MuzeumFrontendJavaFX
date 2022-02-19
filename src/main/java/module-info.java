@@ -1,8 +1,8 @@
 module com.example.muzeumfrontendjavafx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
     requires json.simple;
-
 
     opens com.example.muzeum to javafx.fxml;
     exports com.example.muzeum;
