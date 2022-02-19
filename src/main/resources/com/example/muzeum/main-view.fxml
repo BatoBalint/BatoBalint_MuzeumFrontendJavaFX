@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeum.Controllers.MainController">
+    <HBox spacing="10.0">
+      <Button text="Felvétel" fx:id="addBtn" />
+      <Button mnemonicParsing="false" text="Szerkesztés" fx:id="editBtn" />
+        <Button style="-fx-background-color: red;" text="Törlés" textFill="WHITE" fx:id="delBtn" >
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+    </HBox>
+   <TabPane tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Szobrok">
+           <content>
+               <VBox>
+                  <children>
+                      <TableView fx:id="statueTable">
+                          <columns>
+                              <TableColumn prefWidth="150.0" text="Személy" fx:id="sTabPerson" />
+                              <TableColumn prefWidth="100.0" text="Magasság" fx:id="sTabHeight" />
+                              <TableColumn prefWidth="100.0" text="Ár" fx:id="sTabPrice" />
+                          </columns>
+                      </TableView>
+                  </children>
+               </VBox>
+           </content>
+       </Tab>
+       <Tab text="Festmények">
+         <content>
+             <VBox>
+                  <children>
+                      <TableView fx:id="paintingTable" >
+                          <columns>
+                              <TableColumn prefWidth="150.0" text="Név" fx:id="pTabName" />
+                              <TableColumn prefWidth="100.0" text="Kiadási év" fx:id="pTabYear" />
+                              <TableColumn prefWidth="100.0" text="Kiállítva" fx:id="pTabDisplay" />
+                          </columns>
+                      </TableView>
+                  </children>
+             </VBox>
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
