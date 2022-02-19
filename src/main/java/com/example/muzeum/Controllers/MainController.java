@@ -30,7 +30,10 @@ public class MainController {
     private TableColumn<Statue, Integer> sTabHeight;
     @FXML
     private TableColumn<Statue, Integer> sTabPrice;
+    @FXML
+    private TabPane tabPane;
 
+    private int selectedTab;
 
 
     public void initialize() {
@@ -46,7 +49,31 @@ public class MainController {
         paintingTable.getItems().add(p);
     }
 
+    @FXML
+    public void editBtnClick() {
+
+    }
+
+    @FXML
+    public void delBtnClick() {
+
+    }
+
+    @FXML
+    public void addBtnClick() {
+
+    }
+
+    @FXML
+    public void tabPaneClicked() {
+        selectedTab = tabPane.getSelectionModel().getSelectedIndex();
+    }
+
     public void testAlert() {
         new Alert(Alert.AlertType.NONE, "Test", ButtonType.OK).show();
+    }
+
+    public void testAlert(String text) {
+        new Alert(Alert.AlertType.NONE, text, ButtonType.OK).show();
     }
 }

@@ -7,14 +7,14 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeum.Controllers.MainController">
     <HBox spacing="10.0">
-      <Button text="Felvétel" fx:id="addBtn" />
-      <Button mnemonicParsing="false" text="Szerkesztés" fx:id="editBtn" />
-        <Button style="-fx-background-color: red;" text="Törlés" textFill="WHITE" fx:id="delBtn" >
+      <Button fx:id="addBtn" onAction="#addBtnClick" text="Felvétel" />
+      <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editBtnClick" text="Szerkesztés" />
+        <Button fx:id="delBtn" onAction="#delBtnClick" style="-fx-background-color: red;" text="Törlés" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
     </HBox>
-   <TabPane tabClosingPolicy="UNAVAILABLE">
+   <TabPane fx:id="tabPane" onMouseClicked="#tabPaneClicked" tabClosingPolicy="UNAVAILABLE">
      <tabs>
        <Tab text="Szobrok">
            <content>
@@ -22,9 +22,9 @@
                   <children>
                       <TableView fx:id="statueTable">
                           <columns>
-                              <TableColumn prefWidth="150.0" text="Személy" fx:id="sTabPerson" />
-                              <TableColumn prefWidth="100.0" text="Magasság" fx:id="sTabHeight" />
-                              <TableColumn prefWidth="100.0" text="Ár" fx:id="sTabPrice" />
+                              <TableColumn fx:id="sTabPerson" prefWidth="150.0" text="Személy" />
+                              <TableColumn fx:id="sTabHeight" prefWidth="100.0" text="Magasság" />
+                              <TableColumn fx:id="sTabPrice" prefWidth="100.0" text="Ár" />
                           </columns>
                       </TableView>
                   </children>
@@ -35,11 +35,11 @@
          <content>
              <VBox>
                   <children>
-                      <TableView fx:id="paintingTable" >
+                      <TableView fx:id="paintingTable">
                           <columns>
-                              <TableColumn prefWidth="150.0" text="Név" fx:id="pTabName" />
-                              <TableColumn prefWidth="100.0" text="Kiadási év" fx:id="pTabYear" />
-                              <TableColumn prefWidth="100.0" text="Kiállítva" fx:id="pTabDisplay" />
+                              <TableColumn fx:id="pTabName" prefWidth="150.0" text="Név" />
+                              <TableColumn fx:id="pTabYear" prefWidth="100.0" text="Kiadási év" />
+                              <TableColumn fx:id="pTabDisplay" prefWidth="100.0" text="Kiállítva" />
                           </columns>
                       </TableView>
                   </children>
