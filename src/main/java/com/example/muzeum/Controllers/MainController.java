@@ -21,7 +21,7 @@ public class MainController {
     @FXML
     private TableColumn<Painting, Integer> pTabYear;
     @FXML
-    private TableColumn<Painting, Boolean> pTabDisplay;
+    private TableColumn<Painting, String> pTabDisplay;
     @FXML
     private TableView<Statue> statueTable;
     @FXML
@@ -36,14 +36,14 @@ public class MainController {
     public void initialize() {
         pTabName.setCellValueFactory(new PropertyValueFactory<>("name"));
         pTabYear.setCellValueFactory(new PropertyValueFactory<>("year"));
-        pTabDisplay.setCellValueFactory(new PropertyValueFactory<>("onDisplay"));
+        pTabDisplay.setCellValueFactory(new PropertyValueFactory<>("onDisplayString"));
 
         sTabPerson.setCellValueFactory(new PropertyValueFactory<>("person"));
         sTabHeight.setCellValueFactory(new PropertyValueFactory<>("height"));
         sTabPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        Statue s = new Statue("Lajos", 30, 10000);
-        statueTable.getItems().add(s);
+        Painting p = new Painting("Lajos", 1999, true);
+        paintingTable.getItems().add(p);
     }
 
     public void testAlert() {

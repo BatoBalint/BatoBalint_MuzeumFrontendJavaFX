@@ -5,6 +5,7 @@ public class Painting {
     private String name;
     private int year;
     private boolean onDisplay;
+    private String onDisplayString;
 
     //region Getter / Setter
     public String getName() {
@@ -19,6 +20,10 @@ public class Painting {
         return onDisplay;
     }
 
+    public String getOnDisplayString() {
+        return onDisplayString;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -29,6 +34,8 @@ public class Painting {
 
     public void setOnDisplay(boolean onDisplay) {
         this.onDisplay = onDisplay;
+        if (this.onDisplay) this.onDisplayString = "Igen";
+        else this.onDisplayString = "Nem";
     }
     //endregion
 
@@ -36,5 +43,7 @@ public class Painting {
         this.name = name;
         this.year = year;
         this.onDisplay = onDisplay;
+        if (this.onDisplay) this.onDisplayString = "Igen";
+        else this.onDisplayString = "Nem";
     }
 }
