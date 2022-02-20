@@ -7,6 +7,8 @@ public class Statue {
     private int price;
 
     //region Getter / Setter
+    public int getId() { return id; }
+
     public String getPerson() {
         return person;
     }
@@ -37,5 +39,15 @@ public class Statue {
         this.person = person;
         this.height = height;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Statue{" +
+                "id=" + id +
+                ", person='" + person + '\'' +
+                ", height=" + height +
+                ", price=" + price +
+                '}';
     }
 }

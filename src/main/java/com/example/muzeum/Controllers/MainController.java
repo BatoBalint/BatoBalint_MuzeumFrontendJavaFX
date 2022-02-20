@@ -1,15 +1,22 @@
 package com.example.muzeum.Controllers;
 
 import com.example.muzeum.Api;
+import com.example.muzeum.MuzeumApp;
 import com.example.muzeum.Painting;
 import com.example.muzeum.Statue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 public class MainController {
 
@@ -50,30 +57,20 @@ public class MainController {
         sTabHeight.setCellValueFactory(new PropertyValueFactory<>("height"));
         sTabPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        try {
-            List<Painting> paintings = Api.getPaintings();
-            for(Painting p : paintings) {
-                paintingTable.getItems().add(p);
-            }
-            List<Statue> statues = Api.getStatues();
-            for (Statue s : statues) {
-                statueTable.getItems().add(s);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        loadDataToTables();
     }
 
     @FXML
     public void addBtnClick() {
         switch (selectedTab) {
-            case 0:
+            case 0: openNewWindow("add-statue-view.fxml", "Szobor felvétel");
                 break;
-            case 1:
+            case 1: openNewWindow("add-painting-view.fxml", "Festmény felvétel");
                 break;
         }
     }
 
+    //region Edits
     @FXML
     public void editBtnClick() {
         switch (selectedTab) {
@@ -95,7 +92,9 @@ public class MainController {
 
         }
     }
+    //endregion
 
+    //region Deletes
     @FXML
     public void delBtnClick() {
         switch (selectedTab) {
@@ -117,6 +116,7 @@ public class MainController {
 
         }
     }
+    //endregion
 
     private boolean itemIsSelected(TableView table, String errorMessage) {
         if (table.getSelectionModel().getSelectedIndex() == -1) {
@@ -147,5 +147,36 @@ public class MainController {
     public void clearSelectedItem() {
         statueTable.getSelectionModel().clearSelection();
         paintingTable.getSelectionModel().clearSelection();
+    }
+
+    private void loadDataToTables() {
+        try {
+            List<Painting> paintings = Api.getPaintings();
+            for(Painting p : paintings) {
+                paintingTable.getItems().add(p);
+            }
+            List<Statue> statues = Api.getStatues();
+            for (Statue s : statues) {
+                statueTable.getItems().add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openNewWindow(String fxml, String title) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MuzeumApp.class.getResource(fxml));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.setOnCloseRequest(v -> {
+                loadDataToTables();
+            });
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.muzeum.Controllers.AddStatueController">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+   </padding>
+   <VBox>
+      <Label text="Név"/>
+      <TextField fx:id="personInput" prefWidth="200.0"/>
+   </VBox>
+   <VBox layoutX="20.0" layoutY="20.0">
+      <Label text="Magasság"/>
+      <Spinner fx:id="heightInput" editable="true" prefWidth="200.0">
+         <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="0" max="255"
+                                                            min="0"/>
+         </valueFactory>
+      </Spinner>
+   </VBox>
+   <VBox layoutX="20.0" layoutY="72.0">
+      <Label text="Ár"/>
+      <Spinner fx:id="priceInput" editable="true" prefWidth="200.0">
+         <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="100" initialValue="0" max="250000000"
+                                                            min="10000"/>
+         </valueFactory>
+      </Spinner>
+   </VBox>
+   <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
+      <Button mnemonicParsing="false" onAction="#addBtnClick" text="Felvétel"/>
+   </HBox>
+</VBox>
