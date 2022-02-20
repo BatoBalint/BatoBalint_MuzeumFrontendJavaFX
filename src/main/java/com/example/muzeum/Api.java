@@ -121,4 +121,21 @@ public class Api {
 
         return conn.getResponseCode() == 201;
     }
+
+    public static void deletePainting(int id) throws Exception {
+        URL url = new URL(BASE_URL + "paintings/" + id);
+        genericDelete(url);
+    }
+
+    public static void deleteStatue(int id) throws Exception {
+        URL url = new URL(BASE_URL + "statues/" + id);
+        genericDelete(url);
+    }
+
+    private static void genericDelete(URL url) throws Exception {
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("DELETE");
+        conn.connect();
+        System.out.println(conn.getResponseCode());
+    }
 }

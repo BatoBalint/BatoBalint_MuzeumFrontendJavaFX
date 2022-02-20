@@ -83,13 +83,13 @@ public class MainController {
 
     private void editStatue() {
         if (itemIsSelected(statueTable, "szobrot")) {
-
+            alert(Alert.AlertType.NONE, "Nem támogatott funkcio");
         }
     }
 
     private void editPainting() {
         if (itemIsSelected(paintingTable, "festményt")) {
-
+            alert(Alert.AlertType.NONE, "Nem támogatott funkcio");
         }
     }
     //endregion
@@ -107,13 +107,23 @@ public class MainController {
 
     private void deleteStatue() {
         if (itemIsSelected(statueTable, "szobrot")) {
-
+            try {
+                Api.deleteStatue(statueTable.getSelectionModel().getSelectedItem().getId());
+                loadDataToTables();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void deletePainting() {
         if (itemIsSelected(paintingTable, "festményt")) {
-
+            try {
+                Api.deletePainting(paintingTable.getSelectionModel().getSelectedItem().getId());
+                loadDataToTables();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
     //endregion
@@ -150,6 +160,8 @@ public class MainController {
     }
 
     private void loadDataToTables() {
+        paintingTable.getItems().clear();
+        statueTable.getItems().clear();
         try {
             List<Painting> paintings = Api.getPaintings();
             for(Painting p : paintings) {

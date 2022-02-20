@@ -4,29 +4,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.muzeum.Controllers.AddPaintingController">
+<VBox prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeum.Controllers.AddPaintingController">
    <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <VBox>
-      <Label text="Festmény neve"/>
-      <TextField fx:id="titleInput" prefWidth="200.0"/>
+      <Label text="Festmény neve" />
+      <TextField fx:id="titleInput" />
    </VBox>
    <VBox layoutX="20.0" layoutY="20.0">
-      <Label text="Kiadási év"/>
-      <Spinner fx:id="yearInput" editable="true" prefWidth="200.0">
+      <Label text="Kiadási év" />
+      <Spinner fx:id="yearInput" editable="true">
          <valueFactory>
-            <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="1900" max="2022"
-                                                            min="1"/>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="1900" max="2022" min="1" />
          </valueFactory>
       </Spinner>
    </VBox>
-   <HBox prefWidth="200.0" spacing="20.0">
-      <Label text="Kiállítva"/>
-      <CheckBox fx:id="onDisplayInput" mnemonicParsing="false"/>
+   <HBox spacing="20.0">
+      <Label text="Kiállítva" />
+      <CheckBox fx:id="onDisplayInput" mnemonicParsing="false" />
    </HBox>
-   <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
-      <Button mnemonicParsing="false" onAction="#addBtnClick" text="Felvétel"/>
+   <HBox alignment="CENTER_RIGHT">
+      <Button mnemonicParsing="false" onAction="#addBtnClick" text="Felvétel" />
    </HBox>
 </VBox>
