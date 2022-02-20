@@ -19,19 +19,20 @@ public class AddStatueController {
         Statue s = validate();
         if (s != null) {
             add(s);
+            clearInputs();
         }
     }
 
-    public Statue validate() {
-        String person = personInput.getText();
+    private Statue validate() {
+        String person = personInput.getText().trim();
         int height = heightInput.getValue();
         int price = priceInput.getValue();
 
         StringBuilder error = new StringBuilder();
 
-        if (person.trim().equals("")) {
+        if (person.equals("")) {
             error.append("Nem lehet a név üres\n");
-        } else if (person.trim().length() < 5) {
+        } else if (person.length() < 5) {
             error.append("A névnek legalább 5 karakternek kell lennie\n");
         }
 
@@ -44,7 +45,7 @@ public class AddStatueController {
         }
     }
 
-    public void add(Statue s) {
+    private void add(Statue s) {
         try {
             System.out.println(s);
             if (!Api.addStatue(s)) alert(Alert.AlertType.INFORMATION, "Valami okból nem sikerült elmenteni az új szobrot");
@@ -52,6 +53,12 @@ public class AddStatueController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void clearInputs() {
+        personInput.setText("");
+        heightInput.getValueFactory().setValue(0);
+        priceInput.getValueFactory().setValue(0);
     }
 
     private void alert(Alert.AlertType alertType, String text) {
