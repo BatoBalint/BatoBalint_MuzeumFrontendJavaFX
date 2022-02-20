@@ -47,7 +47,6 @@ public class AddStatueController {
 
     private void add(Statue s) {
         try {
-            System.out.println(s);
             if (!Api.addStatue(s)) alert(Alert.AlertType.INFORMATION, "Valami okból nem sikerült elmenteni az új szobrot");
             else alert(Alert.AlertType.INFORMATION,"A szobor sikeresen elmentve");
         } catch (Exception e) {
